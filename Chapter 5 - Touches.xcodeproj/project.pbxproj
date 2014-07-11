@@ -22,6 +22,7 @@
 		CBCC4A2D196FE3C200F49DD6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBCC4A0C196FE3C100F49DD6 /* UIKit.framework */; };
 		CBCC4A35196FE3C200F49DD6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CBCC4A33196FE3C200F49DD6 /* InfoPlist.strings */; };
 		CBCC4A37196FE3C200F49DD6 /* Chapter_5___TouchesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBCC4A36196FE3C200F49DD6 /* Chapter_5___TouchesTests.m */; };
+		CBCC4A42196FE67100F49DD6 /* DraggableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBCC4A41196FE67100F49DD6 /* DraggableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		CBCC4A32196FE3C200F49DD6 /* Chapter 5 - TouchesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Chapter 5 - TouchesTests-Info.plist"; sourceTree = "<group>"; };
 		CBCC4A34196FE3C200F49DD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CBCC4A36196FE3C200F49DD6 /* Chapter_5___TouchesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Chapter_5___TouchesTests.m"; sourceTree = "<group>"; };
+		CBCC4A40196FE67100F49DD6 /* DraggableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableView.h; sourceTree = "<group>"; };
+		CBCC4A41196FE67100F49DD6 /* DraggableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +121,8 @@
 				CBCC4A17196FE3C100F49DD6 /* AppDelegate.h */,
 				CBCC4A18196FE3C100F49DD6 /* AppDelegate.m */,
 				CBCC4A1A196FE3C100F49DD6 /* Main.storyboard */,
+				CBCC4A40196FE67100F49DD6 /* DraggableView.h */,
+				CBCC4A41196FE67100F49DD6 /* DraggableView.m */,
 				CBCC4A1D196FE3C100F49DD6 /* FirstViewController.h */,
 				CBCC4A1E196FE3C100F49DD6 /* FirstViewController.m */,
 				CBCC4A20196FE3C200F49DD6 /* SecondViewController.h */,
@@ -258,6 +263,7 @@
 				CBCC4A19196FE3C100F49DD6 /* AppDelegate.m in Sources */,
 				CBCC4A1F196FE3C100F49DD6 /* FirstViewController.m in Sources */,
 				CBCC4A15196FE3C100F49DD6 /* main.m in Sources */,
+				CBCC4A42196FE67100F49DD6 /* DraggableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
