@@ -18,10 +18,21 @@
     }
     return self;
 }
-
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"touchesBegan");
+    [self logTouches:touches];
+    [self logEvent:event];
+    
+}
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
+//    NSLog(@"touchesMoved");
+    
+    [self logTouches:touches];
+    [self logEvent:event];
+    
     [self.superview bringSubviewToFront:self];
     
     UITouch *touch = [touches anyObject];
@@ -35,13 +46,62 @@
     self.center = newCenter;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    // Drawing code
+//    NSLog(@"touchesEnded");
+    
+    [self logTouches:touches];
+    [self logEvent:event];
 }
-*/
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+//    NSLog(@"touchesCancelled");
+    
+    [self logTouches:touches];
+    [self logEvent:event];
+}
+
+- (void) logTouches: (NSSet *)touches
+{
+//    NSLog(@"touches: %@", touches);
+    
+    for (UITouch *touch in touches) {
+        CGPoint location = [touch locationInView:self];
+        CGPoint superviewLocation = [touch locationInView:self.superview];
+        NSTimeInterval timestamp =  touch.timestamp;
+        NSUInteger tapCount = touch.tapCount;
+        UIView *tappedView = touch.view;
+        UITouchPhase phase = touch.phase;
+        
+        NSString *touchPhaseDescription = @"unknown phase";
+        switch (phase) {
+            case UITouchPhaseBegan:
+                touchPhaseDescription = @"UITouchPhaseBegan";
+                break;
+            case UITouchPhaseMoved:
+                touchPhaseDescription = @"UITouchPhaseMoved";
+                break;
+            case UITouchPhaseStationary:
+                touchPhaseDescription = @"UITouchPhaseStationary";
+                break;
+            case UITouchPhaseEnded:
+                touchPhaseDescription = @"UITouchPhaseEnded";
+                break;
+            case UITouchPhaseCancelled:
+                touchPhaseDescription = @"UITouchPhaseCancelled";
+                break;
+            default:
+                break;
+        }
+        
+        NSLog(@"\n\ntouch - phase: %@ \nlocation in draggable view: %@ \nsuperview location: %@ \ntimestamp:%f \ntapCount: %lu \ntapped view: %@\n\n", touchPhaseDescription, NSStringFromCGPoint(location), NSStringFromCGPoint(superviewLocation), timestamp, (unsigned long)tapCount, [tappedView class]);
+    }
+}
+
+- (void) logEvent: (UIEvent *)event
+{
+//    NSLog(@"event: %@", event);
+}
 
 @end
