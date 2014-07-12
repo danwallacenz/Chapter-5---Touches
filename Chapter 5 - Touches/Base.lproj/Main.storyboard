@@ -58,6 +58,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iim-pm-FpD">
+                                <rect key="frame" x="20" y="264" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.82442337314548431" blue="0.38055647558666172" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UIPanGestureRecognizer with UIKitDynamics" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hr6-df-phe">
+                                <rect key="frame" x="20" y="372" width="348" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.9943366225071999" blue="0.7144002581061879" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -67,6 +78,7 @@
                         <outlet property="viewWithPanGestureRecognizer" destination="fDh-Fd-yCI" id="qMW-L4-Y4A"/>
                         <outlet property="viewWithTapGestureRecognizers" destination="Ko3-Hc-XeJ" id="Uf4-Z8-q4z"/>
                         <outlet property="viewWithTapGestureRecognizersTExtView" destination="TRf-Lt-Eiq" id="Bpe-aN-I2O"/>
+                        <outlet property="viewWithUIPanGestureRecognizerWithUIKitDynamics" destination="Iim-pm-FpD" id="J2W-gg-XcO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>

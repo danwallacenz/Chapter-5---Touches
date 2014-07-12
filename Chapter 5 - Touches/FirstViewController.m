@@ -21,6 +21,11 @@
 @property (weak, nonatomic) IBOutlet UIView *viewWithPanGestureRecognizer;
 @property CGPoint originalViewWithPanGestureRecognizerCenter;
 
+
+@property (weak, nonatomic) IBOutlet UIView *viewWithUIPanGestureRecognizerWithUIKitDynamics;
+@property (strong, nonatomic) UIDynamicAnimator *dynamicAnimator;
+@property (strong, nonatomic) UIAttachmentBehavior *attachmentBehavior;
+
 @end
 
 @implementation FirstViewController
@@ -35,7 +40,9 @@
 - (void) setup
 {
     
-    /* UITapGestureRecognizer. */
+    /* 
+        UITapGestureRecognizer.
+     */
     
     UITapGestureRecognizer *singleTapRecognier  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
      singleTapRecognier.numberOfTapsRequired = 1;
@@ -57,10 +64,43 @@
     self.originalViewWithTapGestureRecognizersColor = self.viewWithTapGestureRecognizers.backgroundColor;
  
     
-    /* UITapGestureRecognizer. */
+    /* 
+        UIPanGestureRecognizer.
+     */
+    
 //    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(draggingByStoringOriginalCenter:)];
+    
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(draggingByResettingDelta:)];
+    
     [self.viewWithPanGestureRecognizer addGestureRecognizer:panGestureRecognizer];
+    
+    
+    /* 
+        UIPanGestureRecognizer with UIKitDynamics
+     */
+    
+   UIPanGestureRecognizer *panGestureRecognizerWithUIKitDynamics = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(draggingWithUIKitDynamics:)];
+    [self.viewWithUIPanGestureRecognizerWithUIKitDynamics addGestureRecognizer:panGestureRecognizerWithUIKitDynamics];
+    
+}
+
+- (void) draggingWithUIKitDynamics: (UIGestureRecognizer *)recognizer
+{
+    if (recognizer.state == UIGestureRecognizerStateBegan){
+        self.dynamicAnimator = [[UIDynamicAnimator alloc] initWithReferenceView: self.view];
+        CGPoint initialTouchLocation = [recognizer locationOfTouch:0 inView: recognizer.view];
+        CGPoint center = CGPointMake(CGRectGetMidX(recognizer.view.bounds), CGRectGetMidY(recognizer.view.bounds));
+        UIOffset offset = UIOffsetMake(initialTouchLocation.x - center.x, initialTouchLocation.y - center.y);
+        CGPoint anchor   = [recognizer locationOfTouch:0 inView:self.view];
+        
+        UIAttachmentBehavior *attachmentBehavior = [[UIAttachmentBehavior alloc] initWithItem:self.viewWithUIPanGestureRecognizerWithUIKitDynamics offsetFromCenter:offset attachedToAnchor:anchor];
+        [self.dynamicAnimator addBehavior:attachmentBehavior];
+        self.attachmentBehavior = attachmentBehavior;
+    } else if(recognizer.state == UIGestureRecognizerStateChanged){
+        self.attachmentBehavior.anchorPoint = [recognizer locationOfTouch:0 inView:self.view];
+    } else{
+        self.dynamicAnimator = nil;
+    }
 }
 
 - (void) singleTap: (UIGestureRecognizer *)recognizer
