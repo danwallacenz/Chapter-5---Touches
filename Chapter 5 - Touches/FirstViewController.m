@@ -60,6 +60,9 @@
     
     [self.viewWithTapGestureRecognizersTExtView addGestureRecognizer: doubleTapRecognier];
     
+    // Resolve single-tap and double-tap conflict.
+    [singleTapRecognier requireGestureRecognizerToFail:doubleTapRecognier];
+    
     self.originalTextViewColor = self.viewWithTapGestureRecognizersTExtView.backgroundColor;
     self.originalViewWithTapGestureRecognizersColor = self.viewWithTapGestureRecognizers.backgroundColor;
  
