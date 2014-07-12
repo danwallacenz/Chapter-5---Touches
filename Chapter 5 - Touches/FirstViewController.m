@@ -33,12 +33,18 @@
 {
     UITapGestureRecognizer *singleTapRecognier  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
      singleTapRecognier.numberOfTapsRequired = 1;
+    
+        // Gesture recognizers can only be attached to one view it seems.
 //    [self.viewWithTapGestureRecognizers addGestureRecognizer: singleTapRecognier];
+    
     [self.viewWithTapGestureRecognizersTExtView addGestureRecognizer: singleTapRecognier];
     
     UITapGestureRecognizer *doubleTapRecognier  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
     doubleTapRecognier.numberOfTapsRequired = 2;
+    
+    // Gesture recognizers can only be attached to one view it seems.
 //    [self.viewWithTapGestureRecognizers addGestureRecognizer: doubleTapRecognier];
+    
     [self.viewWithTapGestureRecognizersTExtView addGestureRecognizer: doubleTapRecognier];
     
     self.originalTextViewColor = self.viewWithTapGestureRecognizersTExtView.backgroundColor;
