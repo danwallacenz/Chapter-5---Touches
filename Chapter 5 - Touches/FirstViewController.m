@@ -18,6 +18,9 @@
 @property (strong, nonatomic) UIColor *originalTextViewColor;
 @property (strong, nonatomic) UIColor *originalViewWithTapGestureRecognizersColor;
 
+@property (weak, nonatomic) IBOutlet UIView *viewWithPanGestureRecognizer;
+@property CGPoint originalViewWithPanGestureRecognizerCenter;
+
 @end
 
 @implementation FirstViewController
@@ -31,6 +34,9 @@
 
 - (void) setup
 {
+    
+    /* UITapGestureRecognizer. */
+    
     UITapGestureRecognizer *singleTapRecognier  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
      singleTapRecognier.numberOfTapsRequired = 1;
     
@@ -49,7 +55,12 @@
     
     self.originalTextViewColor = self.viewWithTapGestureRecognizersTExtView.backgroundColor;
     self.originalViewWithTapGestureRecognizersColor = self.viewWithTapGestureRecognizers.backgroundColor;
+ 
     
+    /* UITapGestureRecognizer. */
+//    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(draggingByStoringOriginalCenter:)];
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(draggingByResettingDelta:)];
+    [self.viewWithPanGestureRecognizer addGestureRecognizer:panGestureRecognizer];
 }
 
 - (void) singleTap: (UIGestureRecognizer *)recognizer
@@ -105,6 +116,48 @@
         }];
     }];
     
+}
+
+- (void) draggingByStoringOriginalCenter: (UIPanGestureRecognizer *)recognizer
+{
+    NSLog(@"draggingByStoringOriginalCenter:");
+    
+    UIView *viewToDrag = recognizer.view;
+    
+    /*
+        A UIPanGestureRecognizer maintains a delta (translation) for us. 
+        This delta, available using translationInView:, is reckoned from the touch’s initial position. 
+        So we need to store our center only once:
+    */
+    if(recognizer.state == UIGestureRecognizerStateBegan){
+        self.originalViewWithPanGestureRecognizerCenter = viewToDrag.center;
+    }
+    CGPoint delta = [recognizer translationInView: viewToDrag.superview];
+    CGPoint newCenter = self.originalViewWithPanGestureRecognizerCenter;
+    newCenter.x += delta.x;
+    newCenter.y += delta.y;
+    viewToDrag.center = newCenter;
+}
+
+- (void) draggingByResettingDelta: (UIPanGestureRecognizer *)recognizer
+{
+    NSLog(@"draggingByResettingDelta:");
+    
+    UIView *viewToDrag = recognizer.view;
+    
+    /*
+     A UIPanGestureRecognizer maintains a delta (translation) for us.
+     This delta, available using translationInView:, is reckoned from the touch’s initial position.
+     So we need to store our center only once:
+     */
+    if(recognizer.state == UIGestureRecognizerStateBegan || recognizer.state == UIGestureRecognizerStateChanged){
+        CGPoint delta = [recognizer translationInView: viewToDrag.superview];
+        CGPoint newCenter = viewToDrag.center;
+        newCenter.x += delta.x;
+        newCenter.y += delta.y;
+        viewToDrag.center = newCenter;
+        [recognizer setTranslation:CGPointZero inView: viewToDrag.superview];
+    }
 }
 
 - (NSString *)stateDescription: (UIGestureRecognizerState)state
