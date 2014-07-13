@@ -9,6 +9,8 @@
 #import "FirstViewController.h"
 #import "DraggableView.h"
 #import "HorizontalPanGestureRecognizer.h"
+#import "VerticalPanGestureRecognizer.h"
+
 
 @interface FirstViewController ()
 @property (weak, nonatomic) IBOutlet DraggableView *draggableView;
@@ -90,13 +92,33 @@
    UIPanGestureRecognizer *panGestureRecognizerWithUIKitDynamics = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(draggingWithUIKitDynamics:)];
     [self.viewWithUIPanGestureRecognizerWithUIKitDynamics addGestureRecognizer:panGestureRecognizerWithUIKitDynamics];
     
+    
+    // A view that can only be dragged vertically and horizontally
     HorizontalPanGestureRecognizer *horizontalPanGestureRecognizer = [[HorizontalPanGestureRecognizer alloc] initWithTarget:self action:@selector(horizontalDrag:)];
     [self.horizontalAndVerticalDraggingView addGestureRecognizer:horizontalPanGestureRecognizer];
+    
+    VerticalPanGestureRecognizer *verticalPanGestureRecognizer = [[VerticalPanGestureRecognizer alloc] initWithTarget:self action:@selector(verticalDrag:)];
+    [self.horizontalAndVerticalDraggingView addGestureRecognizer:verticalPanGestureRecognizer];
 }
 
 -(void)horizontalDrag: (UIPanGestureRecognizer *)recognizer
 {
     NSLog(@"horizontalDrag:");
+    
+    UIView *viewToDrag = recognizer.view;
+    if(recognizer.state == UIGestureRecognizerStateBegan || recognizer.state == UIGestureRecognizerStateChanged){
+        CGPoint delta = [recognizer translationInView: viewToDrag.superview];
+        CGPoint newCenter = viewToDrag.center;
+        newCenter.x += delta.x;
+        newCenter.y += delta.y;
+        viewToDrag.center = newCenter;
+        [recognizer setTranslation:CGPointZero inView: viewToDrag.superview];
+    }
+}
+
+-(void)verticalDrag: (UIPanGestureRecognizer *)recognizer
+{
+    NSLog(@"verticalDrag:");
     
     UIView *viewToDrag = recognizer.view;
     if(recognizer.state == UIGestureRecognizerStateBegan || recognizer.state == UIGestureRecognizerStateChanged){

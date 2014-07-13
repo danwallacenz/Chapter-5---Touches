@@ -86,6 +86,12 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.89292269427925786" green="1" blue="0.36386923127508508" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Only Horizontal and Vertical Dragging Allowed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WN5-8K-ZCu">
+                                <rect key="frame" x="208" y="570" width="353" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.9943366225071999" blue="0.7144002581061879" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
