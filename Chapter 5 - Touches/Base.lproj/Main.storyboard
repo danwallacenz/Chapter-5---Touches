@@ -73,12 +73,26 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.82442337314548431" blue="0.38055647558666172" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZGB-nl-RkB">
+                                <rect key="frame" x="334" y="462" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="✥" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Awf-0h-wSe">
+                                        <rect key="frame" x="25" y="22" width="50" height="55"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.89292269427925786" green="1" blue="0.36386923127508508" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.9943366225071999" blue="0.7144002581061879" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="draggableView" destination="r0f-Gs-a8i" id="Axv-5P-ULi"/>
+                        <outlet property="horizontalAndVerticalDraggingView" destination="ZGB-nl-RkB" id="idI-aa-Nrc"/>
                         <outlet property="viewWithPanGestureRecognizer" destination="fDh-Fd-yCI" id="qMW-L4-Y4A"/>
                         <outlet property="viewWithTapGestureRecognizers" destination="Ko3-Hc-XeJ" id="Uf4-Z8-q4z"/>
                         <outlet property="viewWithTapGestureRecognizersTExtView" destination="TRf-Lt-Eiq" id="Bpe-aN-I2O"/>

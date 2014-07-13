@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB97507919722FC000EF381C /* HorizontalPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = CB97507819722FC000EF381C /* HorizontalPanGestureRecognizer.m */; };
 		CBCC4A09196FE3C100F49DD6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBCC4A08196FE3C100F49DD6 /* Foundation.framework */; };
 		CBCC4A0B196FE3C100F49DD6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBCC4A0A196FE3C100F49DD6 /* CoreGraphics.framework */; };
 		CBCC4A0D196FE3C100F49DD6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBCC4A0C196FE3C100F49DD6 /* UIKit.framework */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CB97507719722FC000EF381C /* HorizontalPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalPanGestureRecognizer.h; sourceTree = "<group>"; };
+		CB97507819722FC000EF381C /* HorizontalPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalPanGestureRecognizer.m; sourceTree = "<group>"; };
 		CBCC4A05196FE3C100F49DD6 /* Chapter 5 - Touches.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chapter 5 - Touches.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBCC4A08196FE3C100F49DD6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CBCC4A0A196FE3C100F49DD6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -85,6 +88,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB97507519722F6500EF381C /* views */ = {
+			isa = PBXGroup;
+			children = (
+				CBCC4A40196FE67100F49DD6 /* DraggableView.h */,
+				CBCC4A41196FE67100F49DD6 /* DraggableView.m */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		CB97507619722F6F00EF381C /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CBCC4A1D196FE3C100F49DD6 /* FirstViewController.h */,
+				CBCC4A1E196FE3C100F49DD6 /* FirstViewController.m */,
+				CBCC4A20196FE3C200F49DD6 /* SecondViewController.h */,
+				CBCC4A21196FE3C200F49DD6 /* SecondViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		CB97507A19722FC600EF381C /* Gesture Recognizers */ = {
+			isa = PBXGroup;
+			children = (
+				CB97507719722FC000EF381C /* HorizontalPanGestureRecognizer.h */,
+				CB97507819722FC000EF381C /* HorizontalPanGestureRecognizer.m */,
+			);
+			name = "Gesture Recognizers";
+			sourceTree = "<group>";
+		};
 		CBCC49FC196FE3C100F49DD6 = {
 			isa = PBXGroup;
 			children = (
@@ -118,15 +150,10 @@
 		CBCC4A0E196FE3C100F49DD6 /* Chapter 5 - Touches */ = {
 			isa = PBXGroup;
 			children = (
-				CBCC4A17196FE3C100F49DD6 /* AppDelegate.h */,
-				CBCC4A18196FE3C100F49DD6 /* AppDelegate.m */,
 				CBCC4A1A196FE3C100F49DD6 /* Main.storyboard */,
-				CBCC4A40196FE67100F49DD6 /* DraggableView.h */,
-				CBCC4A41196FE67100F49DD6 /* DraggableView.m */,
-				CBCC4A1D196FE3C100F49DD6 /* FirstViewController.h */,
-				CBCC4A1E196FE3C100F49DD6 /* FirstViewController.m */,
-				CBCC4A20196FE3C200F49DD6 /* SecondViewController.h */,
-				CBCC4A21196FE3C200F49DD6 /* SecondViewController.m */,
+				CB97507A19722FC600EF381C /* Gesture Recognizers */,
+				CB97507519722F6500EF381C /* views */,
+				CB97507619722F6F00EF381C /* View Controllers */,
 				CBCC4A23196FE3C200F49DD6 /* Images.xcassets */,
 				CBCC4A0F196FE3C100F49DD6 /* Supporting Files */,
 			);
@@ -136,6 +163,8 @@
 		CBCC4A0F196FE3C100F49DD6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CBCC4A17196FE3C100F49DD6 /* AppDelegate.h */,
+				CBCC4A18196FE3C100F49DD6 /* AppDelegate.m */,
 				CBCC4A10196FE3C100F49DD6 /* Chapter 5 - Touches-Info.plist */,
 				CBCC4A11196FE3C100F49DD6 /* InfoPlist.strings */,
 				CBCC4A14196FE3C100F49DD6 /* main.m */,
@@ -261,6 +290,7 @@
 			files = (
 				CBCC4A22196FE3C200F49DD6 /* SecondViewController.m in Sources */,
 				CBCC4A19196FE3C100F49DD6 /* AppDelegate.m in Sources */,
+				CB97507919722FC000EF381C /* HorizontalPanGestureRecognizer.m in Sources */,
 				CBCC4A1F196FE3C100F49DD6 /* FirstViewController.m in Sources */,
 				CBCC4A15196FE3C100F49DD6 /* main.m in Sources */,
 				CBCC4A42196FE67100F49DD6 /* DraggableView.m in Sources */,
@@ -470,6 +500,7 @@
 				CBCC4A3C196FE3C200F49DD6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CBCC4A3D196FE3C200F49DD6 /* Build configuration list for PBXNativeTarget "Chapter 5 - TouchesTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +509,7 @@
 				CBCC4A3F196FE3C200F49DD6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
