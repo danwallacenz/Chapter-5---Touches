@@ -12,7 +12,7 @@
 #import "VerticalPanGestureRecognizer.h"
 
 
-@interface FirstViewController ()
+@interface FirstViewController () <UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet DraggableView *draggableView;
 
 @property (weak, nonatomic) IBOutlet UIView *viewWithTapGestureRecognizers;
@@ -33,10 +33,15 @@
 @property (weak, nonatomic) IBOutlet UIView *horizontalAndVerticalDraggingView;
 
 
+@property (weak, nonatomic) IBOutlet UITextView *tapAndHoldThenPanView;
+@property (strong, nonatomic) UILongPressGestureRecognizer *tapAndHoldThenPanViewLongPressGestureRecognizer;
+
 @end
 
 @implementation FirstViewController
 
+
+#pragma mark - setup
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -100,7 +105,62 @@
     
     VerticalPanGestureRecognizer *verticalPanGestureRecognizer = [[VerticalPanGestureRecognizer alloc] initWithTarget:self action:@selector(draggingByResettingDelta:)];
     [self.horizontalAndVerticalDraggingView addGestureRecognizer:verticalPanGestureRecognizer];
+    
+    
+    /* Tap and hold then pan a view */
+    
+    UILongPressGestureRecognizer *tapAndHoldThenPanViewLongPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
+    [self.tapAndHoldThenPanView addGestureRecognizer: tapAndHoldThenPanViewLongPressGestureRecognizer];
+    
+    // Keep a reference to the UILongPressGestureRecognizer for later mediation witht the pan recognizer.
+    self.tapAndHoldThenPanViewLongPressGestureRecognizer = tapAndHoldThenPanViewLongPressGestureRecognizer;
+    
+    
+    UIPanGestureRecognizer *tapAndHoldThenPanViewPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(draggingByResettingDelta:)];
+    [self.tapAndHoldThenPanView addGestureRecognizer: tapAndHoldThenPanViewPanGestureRecognizer];
+
+    // Make ourself the UIPanGestureRecognizer's delegate.
+    tapAndHoldThenPanViewPanGestureRecognizer.delegate = self;
 }
+
+
+#pragma mark - UIGestureRecognizerDelegate methods
+
+// The view can only be dragged when it is pulsing.
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    if(self.tapAndHoldThenPanViewLongPressGestureRecognizer.state == UIGestureRecognizerStatePossible || self.tapAndHoldThenPanViewLongPressGestureRecognizer.state == UIGestureRecognizerStateFailed){
+        return NO;
+    }
+    return YES;
+}
+
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
+}
+
+
+#pragma mark - UIGestureRecognizer action methods
+
+- (void) longPress:(UILongPressGestureRecognizer *)recognizer
+{
+    NSLog(@"longPress:");
+    
+    // Add pulsing animation.
+    if(recognizer.state == UIGestureRecognizerStateBegan){
+        CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"transform"];
+        anim.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.1, 1.1, 1)];
+        anim.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
+        anim.repeatCount = HUGE_VALF;
+        anim.autoreverses = YES;
+        [recognizer.view.layer addAnimation:anim forKey:nil];
+    }
+    if(recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateCancelled){
+        [recognizer.view.layer removeAllAnimations];
+    }
+}
+
 
 - (void) draggingWithUIKitDynamics: (UIGestureRecognizer *)recognizer
 {
@@ -218,6 +278,8 @@
     }
 }
 
+
+#pragma mark - utility methods
 - (NSString *)stateDescription: (UIGestureRecognizerState)state
 {
 
