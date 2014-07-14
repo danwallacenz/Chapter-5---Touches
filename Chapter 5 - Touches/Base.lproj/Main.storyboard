@@ -86,14 +86,14 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.89292269427925786" green="1" blue="0.36386923127508508" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Only Horizontal and Vertical Dragging Allowed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WN5-8K-ZCu">
-                                <rect key="frame" x="208" y="570" width="353" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Only horizontal and vertical dragging allowed. Restrict movement within parent bounds." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="390" translatesAutoresizingMaskIntoConstraints="NO" id="WN5-8K-ZCu">
+                                <rect key="frame" x="189" y="570" width="390" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqO-Ne-VJU">
-                                <rect key="frame" x="244" y="606" width="375" height="144"/>
+                                <rect key="frame" x="197" y="619" width="375" height="144"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.69108095097235611" blue="0.40548352486597883" alpha="1" colorSpace="calibratedRGB"/>
                                 <mutableString key="text">Use delegate messages to combine a UILongPressGesture‐ Recognizer and a UIPanGestureRecognizer, as follows: the user must perform a tap- and-a-half (tap and hold) to “get this view’s attention,” which we will indicate by a pulsing animation on it; then (and only then) the user can drag this view.</mutableString>
