@@ -31,7 +31,6 @@
         CGFloat deltaX = fabs(touchLocation.x - self.firstTouchLocation.x);
         CGFloat deltaY = fabs(touchLocation.y - self.firstTouchLocation.y);
         
-        NSLog(@"deltaX=%f", deltaX);
         if(deltaY >= deltaX){
             self.state = UIGestureRecognizerStateFailed;
         }
@@ -42,13 +41,30 @@
 -(CGPoint)translationInView:(UIView *)view
 {
     CGPoint proposedTranslation = [super translationInView:view];
+
+    // Prevent vertical pan.
     proposedTranslation.y = 0;
     
-    if([self willPanBeyondSuperviewWidthWithTranslation:proposedTranslation]){
+    // Prevent pan beyond right margin of superview.
+    if([self willPanBeyondSuperviewRightSideWithTranslation:proposedTranslation]){
         proposedTranslation.x = [self calculateMaxXTranslationForTranslation:proposedTranslation inView:self.view];
-        
     }
+    
+    // Prevent pan beyond right margin of superview.
+   if([self willPanBeyondSuperviewLeftSideWithTranslation:proposedTranslation]){
+        proposedTranslation.x = [self calculateMinXTranslationForTranslation:proposedTranslation inView:self.view];
+    }
+    
     return proposedTranslation;
+}
+
+
+#pragma mark - utilities
+
+- (CGFloat) calculateMinXTranslationForTranslation: (CGPoint)translation inView: (UIView *)view
+{
+    CGFloat minXTranslation = [self leftSideLocationOfView: view.superview] - [self leftSideLocationOfView:view];
+    return minXTranslation;
 }
 
 - (CGFloat) calculateMaxXTranslationForTranslation: (CGPoint)translation inView: (UIView *)view
@@ -57,12 +73,15 @@
     return maxXTranslation;
 }
 
-#pragma mark - utilities
+-(BOOL)willPanBeyondSuperviewLeftSideWithTranslation: (CGPoint)translation
+{
+    CGFloat translationX = [self leftSideLocationOfView: self.view] + translation.x;
+    return translationX < self.view.superview.frame.origin.x;
+}
 
--(BOOL)willPanBeyondSuperviewWidthWithTranslation: (CGPoint)translation
+-(BOOL)willPanBeyondSuperviewRightSideWithTranslation: (CGPoint)translation
 {
     CGFloat translationX = [self rightSideLocationOfView: self.view] + translation.x;
-    NSLog(@"proposedTranslation.x=%f", translationX);
     return translationX > self.view.superview.bounds.size.width;
 }
 
@@ -71,6 +90,9 @@
     return view.center.x + CGRectGetMidX(view.bounds);
 }
 
-
+- (CGFloat)leftSideLocationOfView: (UIView *)view
+{
+    return view.center.x - CGRectGetMidX(view.bounds);
+}
 
 @end
