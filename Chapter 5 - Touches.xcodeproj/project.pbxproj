@@ -29,6 +29,7 @@
 		CBCC4A35196FE3C200F49DD6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CBCC4A33196FE3C200F49DD6 /* InfoPlist.strings */; };
 		CBCC4A37196FE3C200F49DD6 /* Chapter_5___TouchesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBCC4A36196FE3C200F49DD6 /* Chapter_5___TouchesTests.m */; };
 		CBCC4A42196FE67100F49DD6 /* DraggableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBCC4A41196FE67100F49DD6 /* DraggableView.m */; };
+		E00E64FF197486B400B3859A /* HitTestingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E00E64FE197486B400B3859A /* HitTestingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,8 @@
 		CBCC4A36196FE3C200F49DD6 /* Chapter_5___TouchesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Chapter_5___TouchesTests.m"; sourceTree = "<group>"; };
 		CBCC4A40196FE67100F49DD6 /* DraggableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableView.h; sourceTree = "<group>"; };
 		CBCC4A41196FE67100F49DD6 /* DraggableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggableView.m; sourceTree = "<group>"; };
+		E00E64FD197486B400B3859A /* HitTestingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HitTestingViewController.h; sourceTree = "<group>"; };
+		E00E64FE197486B400B3859A /* HitTestingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HitTestingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 		CB97507619722F6F00EF381C /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E00E64FD197486B400B3859A /* HitTestingViewController.h */,
+				E00E64FE197486B400B3859A /* HitTestingViewController.m */,
 				CBCC4A1D196FE3C100F49DD6 /* FirstViewController.h */,
 				CBCC4A1E196FE3C100F49DD6 /* FirstViewController.m */,
 				CBCC4A20196FE3C200F49DD6 /* SecondViewController.h */,
@@ -321,6 +326,7 @@
 				CB97507D1972386C00EF381C /* VerticalPanGestureRecognizer.m in Sources */,
 				CBCC4A42196FE67100F49DD6 /* DraggableView.m in Sources */,
 				CB9750801973D64100EF381C /* UIView-Transform.m in Sources */,
+				E00E64FF197486B400B3859A /* HitTestingViewController.m in Sources */,
 				CB9750831973D66100EF381C /* RotateScaleAndTranslateView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
