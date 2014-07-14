@@ -126,6 +126,7 @@
     
     UIPanGestureRecognizer *panWithTransformPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panWithTransform:)];
     [self.viewThatPansWithATransform addGestureRecognizer:panWithTransformPanGestureRecognizer];
+    self.viewThatPansWithATransform.translatesAutoresizingMaskIntoConstraints = NO;
 }
 
 
@@ -150,7 +151,11 @@
 
 - (void)panWithTransform:(UIPanGestureRecognizer *)recognizer
 {
+//    UIView *panningView = self.viewThatPansWithATransform;//recognizer.view;
+//    [panningView removeConstraints:panningView.constraints];
+    
     UIView *panningView = recognizer.view;
+    //    [panningView removeConstraints:panningView.constraints];
     
     // Gesture ended.
     if(recognizer.state == UIGestureRecognizerStateEnded){
@@ -163,6 +168,7 @@
         theTransform.tx = 0.0f;
         theTransform.ty = 0.0f;
         panningView.transform = theTransform;
+
         
         return;
     }
