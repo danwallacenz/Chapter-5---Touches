@@ -45,15 +45,22 @@
     proposedTranslation.y = 0;
     
     if([self willPanBeyondSuperviewWidthWithTranslation:proposedTranslation]){
-        NSLog(@"proposedTranslation.x is too far to the right: %f", self.view.center.x + CGRectGetMidX(self.view.bounds) + proposedTranslation.x);
-        proposedTranslation.x = 0;
+        proposedTranslation.x = [self calculateMaxXTranslationForTranslation:proposedTranslation inView:self.view];
+        
     }
     return proposedTranslation;
 }
 
+- (CGFloat) calculateMaxXTranslationForTranslation: (CGPoint)translation inView: (UIView *)view
+{
+    CGFloat maxXTranslation = [self rightSideLocationOfView:view.superview] - [self rightSideLocationOfView:view];
+    return maxXTranslation;
+}
+
+#pragma mark - utilities
+
 -(BOOL)willPanBeyondSuperviewWidthWithTranslation: (CGPoint)translation
 {
-//    CGFloat translationX = self.view.center.x + CGRectGetMidX(self.view.bounds) + translation.x;
     CGFloat translationX = [self rightSideLocationOfView: self.view] + translation.x;
     NSLog(@"proposedTranslation.x=%f", translationX);
     return translationX > self.view.superview.bounds.size.width;
@@ -63,5 +70,7 @@
 {
     return view.center.x + CGRectGetMidX(view.bounds);
 }
+
+
 
 @end
