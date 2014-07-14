@@ -73,6 +73,16 @@
     CGPoint newCenter = self.center;
     newCenter.x += deltaX;
     newCenter.y += deltaY;
+    
+    // Restrict movement within parent bounds
+	float halfx = CGRectGetMidX(self.bounds);
+	newCenter.x = MAX(halfx, newCenter.x);
+	newCenter.x = MIN(self.superview.bounds.size.width - halfx, newCenter.x);
+	
+	float halfy = CGRectGetMidY(self.bounds);
+	newCenter.y = MAX(halfy, newCenter.y);
+	newCenter.y = MIN(self.superview.bounds.size.height - halfy, newCenter.y);
+
     self.center = newCenter;
 }
 
