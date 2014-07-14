@@ -29,12 +29,13 @@
 @property (strong, nonatomic) UIDynamicAnimator *dynamicAnimator;
 @property (strong, nonatomic) UIAttachmentBehavior *attachmentBehavior;
 
-
 @property (weak, nonatomic) IBOutlet UIView *horizontalAndVerticalDraggingView;
-
 
 @property (weak, nonatomic) IBOutlet UITextView *tapAndHoldThenPanView;
 @property (strong, nonatomic) UILongPressGestureRecognizer *tapAndHoldThenPanViewLongPressGestureRecognizer;
+
+
+@property (weak, nonatomic) IBOutlet UIView *viewThatPansWithATransform;
 
 @end
 
@@ -121,6 +122,10 @@
 
     // Make ourself the UIPanGestureRecognizer's delegate.
     tapAndHoldThenPanViewPanGestureRecognizer.delegate = self;
+    
+    
+    UIPanGestureRecognizer *panWithTransformPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panWithTransform:)];
+    [self.viewThatPansWithATransform addGestureRecognizer:panWithTransformPanGestureRecognizer];
 }
 
 
@@ -142,6 +147,37 @@
 
 
 #pragma mark - UIGestureRecognizer action methods
+
+- (void)panWithTransform:(UIPanGestureRecognizer *)recognizer
+{
+    UIView *panningView = recognizer.view;
+    
+    // Gesture ended.
+    if(recognizer.state == UIGestureRecognizerStateEnded){
+        CGPoint newCenter = CGPointMake(
+                                        panningView.center.x + panningView.transform.tx,
+                                        panningView.center.y + panningView.transform.ty);
+        panningView.center = newCenter;
+    
+        CGAffineTransform theTransform = panningView.transform;
+        theTransform.tx = 0.0f;
+        theTransform.ty = 0.0f;
+        panningView.transform = theTransform;
+        
+        return;
+    }
+    
+    CGPoint translation = [recognizer translationInView: panningView.superview];
+    
+    NSLog(@"translation = %@", NSStringFromCGPoint(translation));
+    CGAffineTransform theTransform = panningView.transform;
+    theTransform.tx = translation.x;
+    theTransform.ty = translation.y;
+    panningView.transform = theTransform;
+    
+    NSLog(@"transform = %@", NSStringFromCGAffineTransform(panningView.transform));
+}
+
 
 - (void) longPress:(UILongPressGestureRecognizer *)recognizer
 {
