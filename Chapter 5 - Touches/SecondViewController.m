@@ -8,6 +8,7 @@
 
 #import "SecondViewController.h"
 #import "RotateScaleAndTranslateView.h"
+#import "DrawingView.h"
 
 @interface SecondViewController ()
 
@@ -24,7 +25,14 @@
     [self.view addSubview:rotateScaleAndTranslateView];
     rotateScaleAndTranslateView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds));
     
+    DrawingView *drawingView = [[DrawingView alloc] initWithFrame: CGRectMake(0, 0, self.view.bounds.size.width, 200.0f)]; //[UIScreen mainScreen].applicationFrame];
+    [self.view addSubview: drawingView];
     
+    
+    [self.view setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
+    drawingView.backgroundColor = [UIColor orangeColor];
+    
+    self.view.backgroundColor = [UIColor yellowColor];
 }
 
 - (void)didReceiveMemoryWarning
