@@ -97,15 +97,10 @@
                                 <rect key="frame" x="197" y="673" width="375" height="144"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.69108095097235611" blue="0.40548352486597883" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">Use delegate messages to combine a UILongPressGesture‐ Recognizer and a UIPanGestureRecognizer, as follows: the user must perform a tap- and-a-half (tap and hold) to “get this view’s attention,” which we will indicate by a pulsing animation on it; then (and only then) the user can drag this view.</mutableString>
+                                <string key="text">Use delegate messages to combine a UILongPressGesture‐ Recognizer and a UIPanGestureRecognizer, as follows: the user must perform a tap- and-a-half (tap and hold) to “get this view’s attention,” which we will indicate by a pulsing animation on it; then (and only then) the user can drag this view.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S79-g0-Ujb">
-                                <rect key="frame" x="548" y="362" width="200" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.93303624785757067" blue="0.3106015763188853" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Panning using a transform" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="147" translatesAutoresizingMaskIntoConstraints="NO" id="Pz0-62-Myo">
                                 <rect key="frame" x="548" y="470" width="147" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -121,7 +116,6 @@
                         <outlet property="draggableView" destination="r0f-Gs-a8i" id="Axv-5P-ULi"/>
                         <outlet property="horizontalAndVerticalDraggingView" destination="ZGB-nl-RkB" id="idI-aa-Nrc"/>
                         <outlet property="tapAndHoldThenPanView" destination="PqO-Ne-VJU" id="zHn-V3-MOB"/>
-                        <outlet property="viewThatPansWithATransform" destination="S79-g0-Ujb" id="XSM-15-RTv"/>
                         <outlet property="viewWithPanGestureRecognizer" destination="fDh-Fd-yCI" id="qMW-L4-Y4A"/>
                         <outlet property="viewWithTapGestureRecognizers" destination="Ko3-Hc-XeJ" id="Uf4-Z8-q4z"/>
                         <outlet property="viewWithTapGestureRecognizersTExtView" destination="TRf-Lt-Eiq" id="Bpe-aN-I2O"/>

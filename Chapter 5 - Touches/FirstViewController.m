@@ -125,8 +125,12 @@
     
     
     UIPanGestureRecognizer *panWithTransformPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panWithTransform:)];
-    [self.viewThatPansWithATransform addGestureRecognizer:panWithTransformPanGestureRecognizer];
-    self.viewThatPansWithATransform.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    // Creating this view in the storyboard causes constraints to interfere and make it jump back to the original position on pan end.
+    UIView *viewThatPansWithATransform = [[UIView alloc]initWithFrame:CGRectMake(500, 350, 200, 100)];
+    [self.view addSubview:viewThatPansWithATransform];
+    viewThatPansWithATransform.backgroundColor = [UIColor blueColor];
+    [viewThatPansWithATransform addGestureRecognizer:panWithTransformPanGestureRecognizer];
 }
 
 
