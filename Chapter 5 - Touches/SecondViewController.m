@@ -7,6 +7,7 @@
 //
 
 #import "SecondViewController.h"
+#import "RotateScaleAndTranslateView.h"
 
 @interface SecondViewController ()
 
@@ -18,6 +19,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    RotateScaleAndTranslateView *rotateScaleAndTranslateView  = [[RotateScaleAndTranslateView alloc] initWithImage:[UIImage imageNamed: @"sun.png"]];
+    [self.view addSubview:rotateScaleAndTranslateView];
+    rotateScaleAndTranslateView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds));
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

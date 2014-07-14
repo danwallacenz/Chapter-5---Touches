@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		CB97507919722FC000EF381C /* HorizontalPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = CB97507819722FC000EF381C /* HorizontalPanGestureRecognizer.m */; };
 		CB97507D1972386C00EF381C /* VerticalPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = CB97507C1972386C00EF381C /* VerticalPanGestureRecognizer.m */; };
+		CB9750801973D64100EF381C /* UIView-Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = CB97507F1973D64100EF381C /* UIView-Transform.m */; };
+		CB9750831973D66100EF381C /* RotateScaleAndTranslateView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9750821973D66100EF381C /* RotateScaleAndTranslateView.m */; };
+		CB9750851973D7E200EF381C /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = CB9750841973D7E200EF381C /* sun.png */; };
 		CBCC4A09196FE3C100F49DD6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBCC4A08196FE3C100F49DD6 /* Foundation.framework */; };
 		CBCC4A0B196FE3C100F49DD6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBCC4A0A196FE3C100F49DD6 /* CoreGraphics.framework */; };
 		CBCC4A0D196FE3C100F49DD6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBCC4A0C196FE3C100F49DD6 /* UIKit.framework */; };
@@ -42,6 +45,11 @@
 		CB97507819722FC000EF381C /* HorizontalPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalPanGestureRecognizer.m; sourceTree = "<group>"; };
 		CB97507B1972386000EF381C /* VerticalPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerticalPanGestureRecognizer.h; sourceTree = "<group>"; };
 		CB97507C1972386C00EF381C /* VerticalPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerticalPanGestureRecognizer.m; sourceTree = "<group>"; };
+		CB97507E1973D64100EF381C /* UIView-Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView-Transform.h"; sourceTree = "<group>"; };
+		CB97507F1973D64100EF381C /* UIView-Transform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView-Transform.m"; sourceTree = "<group>"; };
+		CB9750811973D66100EF381C /* RotateScaleAndTranslateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotateScaleAndTranslateView.h; sourceTree = "<group>"; };
+		CB9750821973D66100EF381C /* RotateScaleAndTranslateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RotateScaleAndTranslateView.m; sourceTree = "<group>"; };
+		CB9750841973D7E200EF381C /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
 		CBCC4A05196FE3C100F49DD6 /* Chapter 5 - Touches.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chapter 5 - Touches.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBCC4A08196FE3C100F49DD6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CBCC4A0A196FE3C100F49DD6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -94,6 +102,10 @@
 		CB97507519722F6500EF381C /* views */ = {
 			isa = PBXGroup;
 			children = (
+				CB9750811973D66100EF381C /* RotateScaleAndTranslateView.h */,
+				CB9750821973D66100EF381C /* RotateScaleAndTranslateView.m */,
+				CB97507E1973D64100EF381C /* UIView-Transform.h */,
+				CB97507F1973D64100EF381C /* UIView-Transform.m */,
 				CBCC4A40196FE67100F49DD6 /* DraggableView.h */,
 				CBCC4A41196FE67100F49DD6 /* DraggableView.m */,
 			);
@@ -155,6 +167,7 @@
 		CBCC4A0E196FE3C100F49DD6 /* Chapter 5 - Touches */ = {
 			isa = PBXGroup;
 			children = (
+				CB9750841973D7E200EF381C /* sun.png */,
 				CBCC4A1A196FE3C100F49DD6 /* Main.storyboard */,
 				CB97507A19722FC600EF381C /* Gesture Recognizers */,
 				CB97507519722F6500EF381C /* views */,
@@ -272,6 +285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB9750851973D7E200EF381C /* sun.png in Resources */,
 				CBCC4A24196FE3C200F49DD6 /* Images.xcassets in Resources */,
 				CBCC4A13196FE3C100F49DD6 /* InfoPlist.strings in Resources */,
 				CBCC4A1C196FE3C100F49DD6 /* Main.storyboard in Resources */,
@@ -300,6 +314,8 @@
 				CBCC4A15196FE3C100F49DD6 /* main.m in Sources */,
 				CB97507D1972386C00EF381C /* VerticalPanGestureRecognizer.m in Sources */,
 				CBCC4A42196FE67100F49DD6 /* DraggableView.m in Sources */,
+				CB9750801973D64100EF381C /* UIView-Transform.m in Sources */,
+				CB9750831973D66100EF381C /* RotateScaleAndTranslateView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
