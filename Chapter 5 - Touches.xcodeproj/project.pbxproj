@@ -30,6 +30,10 @@
 		CBCC4A37196FE3C200F49DD6 /* Chapter_5___TouchesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBCC4A36196FE3C200F49DD6 /* Chapter_5___TouchesTests.m */; };
 		CBCC4A42196FE67100F49DD6 /* DraggableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBCC4A41196FE67100F49DD6 /* DraggableView.m */; };
 		E00E64FF197486B400B3859A /* HitTestingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E00E64FE197486B400B3859A /* HitTestingViewController.m */; };
+		E00E65031974CDF600B3859A /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = E00E65011974CDF600B3859A /* Contents.json */; };
+		E00E65041974CDF600B3859A /* MarsNew@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E00E65021974CDF600B3859A /* MarsNew@2x.png */; };
+		E00E65081974CE2100B3859A /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = E00E65061974CE2100B3859A /* Contents.json */; };
+		E00E65091974CE2100B3859A /* smileyiPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = E00E65071974CE2100B3859A /* smileyiPhone.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +83,10 @@
 		CBCC4A41196FE67100F49DD6 /* DraggableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggableView.m; sourceTree = "<group>"; };
 		E00E64FD197486B400B3859A /* HitTestingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HitTestingViewController.h; sourceTree = "<group>"; };
 		E00E64FE197486B400B3859A /* HitTestingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HitTestingViewController.m; sourceTree = "<group>"; };
+		E00E65011974CDF600B3859A /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
+		E00E65021974CDF600B3859A /* MarsNew@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MarsNew@2x.png"; sourceTree = "<group>"; };
+		E00E65061974CE2100B3859A /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
+		E00E65071974CE2100B3859A /* smileyiPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smileyiPhone.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +191,8 @@
 				CB97507519722F6500EF381C /* views */,
 				CB97507619722F6F00EF381C /* View Controllers */,
 				CBCC4A23196FE3C200F49DD6 /* Images.xcassets */,
+				E00E65001974CDF600B3859A /* Mars.imageset */,
+				E00E65051974CE2100B3859A /* smiley.imageset */,
 				CBCC4A0F196FE3C100F49DD6 /* Supporting Files */,
 			);
 			path = "Chapter 5 - Touches";
@@ -217,6 +227,24 @@
 				CBCC4A33196FE3C200F49DD6 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E00E65001974CDF600B3859A /* Mars.imageset */ = {
+			isa = PBXGroup;
+			children = (
+				E00E65011974CDF600B3859A /* Contents.json */,
+				E00E65021974CDF600B3859A /* MarsNew@2x.png */,
+			);
+			path = Mars.imageset;
+			sourceTree = "<group>";
+		};
+		E00E65051974CE2100B3859A /* smiley.imageset */ = {
+			isa = PBXGroup;
+			children = (
+				E00E65061974CE2100B3859A /* Contents.json */,
+				E00E65071974CE2100B3859A /* smileyiPhone.png */,
+			);
+			path = smiley.imageset;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,10 +323,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E00E65031974CDF600B3859A /* Contents.json in Resources */,
+				E00E65091974CE2100B3859A /* smileyiPhone.png in Resources */,
 				CB9750851973D7E200EF381C /* sun.png in Resources */,
+				E00E65041974CDF600B3859A /* MarsNew@2x.png in Resources */,
 				CBCC4A24196FE3C200F49DD6 /* Images.xcassets in Resources */,
 				CBCC4A13196FE3C100F49DD6 /* InfoPlist.strings in Resources */,
 				CBCC4A1C196FE3C100F49DD6 /* Main.storyboard in Resources */,
+				E00E65081974CE2100B3859A /* Contents.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

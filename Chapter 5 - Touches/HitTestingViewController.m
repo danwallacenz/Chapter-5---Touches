@@ -10,18 +10,43 @@
 
 @interface HitTestingViewController ()
 
+@property (weak, nonatomic) IBOutlet UIView *hitTestView;
+
 @end
 
 @implementation HitTestingViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (IBAction)tap:(UITapGestureRecognizer *)sender
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    NSLog(@"tap:");
+    
+    CGPoint tapPoint = [sender locationOfTouch:0 inView:self.hitTestView];
+    UIView *tappedView =[self.hitTestView hitTest:tapPoint withEvent:nil];
+    
+    if([tappedView isKindOfClass:[UIImageView class]]){
+        [self swellBriefly: tappedView];
     }
-    return self;
 }
+
+-(void)swellBriefly:(UIView *)view
+{
+    CGRect originalBounds = view.bounds;
+    [UIView animateWithDuration:0.25
+                          delay: 0
+                        options: 0//UIViewAnimationOptionAutoreverse
+                     animations:^{
+                         CGRect newbounds = view.bounds;
+                         newbounds.size.width += 10;
+                         newbounds.size.height += 10;
+                         view.bounds = newbounds;
+                     }completion:^(BOOL finished) {
+                         [UIView animateWithDuration:0.25
+                                          animations:^{
+                                              view.bounds = originalBounds;
+                                          }];
+                     }];
+}
+
 
 - (void)viewDidLoad
 {
@@ -29,21 +54,5 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

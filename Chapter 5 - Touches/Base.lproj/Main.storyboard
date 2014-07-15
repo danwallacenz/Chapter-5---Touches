@@ -125,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4127" y="-834"/>
+            <point key="canvasLocation" x="-6211" y="-786"/>
         </scene>
         <!--Hit Testing View Controller - Hit Testing-->
         <scene sceneID="Mml-bQ-uQL">
@@ -138,13 +138,42 @@
                     <view key="view" contentMode="scaleToFill" id="3n8-Y8-1pd">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GgN-50-czy">
+                                <rect key="frame" x="234" y="20" width="300" height="140"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MarsNew.png" translatesAutoresizingMaskIntoConstraints="NO" id="u5y-Kn-ZG7">
+                                        <rect key="frame" x="20" y="20" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="smileyiPhone.png" translatesAutoresizingMaskIntoConstraints="NO" id="6E6-85-DEH">
+                                        <rect key="frame" x="180" y="20" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.59515849835348411" green="0.79326459357351564" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="6iu-mJ-7fk" appends="YES" id="XUF-Lz-sJ6"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.64162802711792355" green="0.69316654375625109" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Hit Testing" id="BZ6-OG-tYS"/>
+                    <connections>
+                        <outlet property="hitTestView" destination="GgN-50-czy" id="CqH-GI-QkB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Msi-fl-eRr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="6iu-mJ-7fk">
+                    <connections>
+                        <action selector="tap:" destination="DtU-cn-z8i" id="dLs-Ew-TkP"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-4127" y="1437"/>
+            <point key="canvasLocation" x="-6211" y="1485"/>
         </scene>
         <!--Second View Controller - Erica-->
         <scene sceneID="wg7-f3-ORb">
@@ -188,7 +217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4126" y="300"/>
+            <point key="canvasLocation" x="-6210" y="348"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -208,12 +237,14 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5333" y="310"/>
+            <point key="canvasLocation" x="-7417" y="358"/>
         </scene>
     </scenes>
     <resources>
+        <image name="MarsNew.png" width="109" height="109"/>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
+        <image name="smileyiPhone.png" width="120" height="120"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
