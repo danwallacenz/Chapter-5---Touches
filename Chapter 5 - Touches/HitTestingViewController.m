@@ -8,9 +8,11 @@
 
 #import "HitTestingViewController.h"
 
+
 @interface HitTestingViewController ()
 
 @property (weak, nonatomic) IBOutlet UIView *hitTestView;
+@property (weak, nonatomic) IBOutlet UIView *tapOutsideBoundsView;
 
 @end
 
@@ -52,6 +54,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.tapOutsideBoundsView.clipsToBounds = NO;
 }
 
 

@@ -11,7 +11,6 @@
 		CB97507D1972386C00EF381C /* VerticalPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = CB97507C1972386C00EF381C /* VerticalPanGestureRecognizer.m */; };
 		CB9750801973D64100EF381C /* UIView-Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = CB97507F1973D64100EF381C /* UIView-Transform.m */; };
 		CB9750831973D66100EF381C /* RotateScaleAndTranslateView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9750821973D66100EF381C /* RotateScaleAndTranslateView.m */; };
-		CB9750851973D7E200EF381C /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = CB9750841973D7E200EF381C /* sun.png */; };
 		CB9750881973DAC300EF381C /* DrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9750871973DAC300EF381C /* DrawingView.m */; };
 		CBCC4A09196FE3C100F49DD6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBCC4A08196FE3C100F49DD6 /* Foundation.framework */; };
 		CBCC4A0B196FE3C100F49DD6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBCC4A0A196FE3C100F49DD6 /* CoreGraphics.framework */; };
@@ -34,6 +33,7 @@
 		E00E65041974CDF600B3859A /* MarsNew@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E00E65021974CDF600B3859A /* MarsNew@2x.png */; };
 		E00E65081974CE2100B3859A /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = E00E65061974CE2100B3859A /* Contents.json */; };
 		E00E65091974CE2100B3859A /* smileyiPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = E00E65071974CE2100B3859A /* smileyiPhone.png */; };
+		E00E650C1974D6F100B3859A /* TapOutsideBoundsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E00E650B1974D6F100B3859A /* TapOutsideBoundsView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +55,6 @@
 		CB97507F1973D64100EF381C /* UIView-Transform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView-Transform.m"; sourceTree = "<group>"; };
 		CB9750811973D66100EF381C /* RotateScaleAndTranslateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotateScaleAndTranslateView.h; sourceTree = "<group>"; };
 		CB9750821973D66100EF381C /* RotateScaleAndTranslateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RotateScaleAndTranslateView.m; sourceTree = "<group>"; };
-		CB9750841973D7E200EF381C /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
 		CB9750861973DAC300EF381C /* DrawingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingView.h; sourceTree = "<group>"; };
 		CB9750871973DAC300EF381C /* DrawingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingView.m; sourceTree = "<group>"; };
 		CBCC4A05196FE3C100F49DD6 /* Chapter 5 - Touches.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chapter 5 - Touches.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +86,8 @@
 		E00E65021974CDF600B3859A /* MarsNew@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MarsNew@2x.png"; sourceTree = "<group>"; };
 		E00E65061974CE2100B3859A /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		E00E65071974CE2100B3859A /* smileyiPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smileyiPhone.png; sourceTree = "<group>"; };
+		E00E650A1974D6F100B3859A /* TapOutsideBoundsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapOutsideBoundsView.h; sourceTree = "<group>"; };
+		E00E650B1974D6F100B3859A /* TapOutsideBoundsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapOutsideBoundsView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +117,8 @@
 		CB97507519722F6500EF381C /* views */ = {
 			isa = PBXGroup;
 			children = (
+				E00E650A1974D6F100B3859A /* TapOutsideBoundsView.h */,
+				E00E650B1974D6F100B3859A /* TapOutsideBoundsView.m */,
 				CB9750861973DAC300EF381C /* DrawingView.h */,
 				CB9750871973DAC300EF381C /* DrawingView.m */,
 				CB9750811973D66100EF381C /* RotateScaleAndTranslateView.h */,
@@ -185,7 +188,6 @@
 		CBCC4A0E196FE3C100F49DD6 /* Chapter 5 - Touches */ = {
 			isa = PBXGroup;
 			children = (
-				CB9750841973D7E200EF381C /* sun.png */,
 				CBCC4A1A196FE3C100F49DD6 /* Main.storyboard */,
 				CB97507A19722FC600EF381C /* Gesture Recognizers */,
 				CB97507519722F6500EF381C /* views */,
@@ -325,7 +327,6 @@
 			files = (
 				E00E65031974CDF600B3859A /* Contents.json in Resources */,
 				E00E65091974CE2100B3859A /* smileyiPhone.png in Resources */,
-				CB9750851973D7E200EF381C /* sun.png in Resources */,
 				E00E65041974CDF600B3859A /* MarsNew@2x.png in Resources */,
 				CBCC4A24196FE3C200F49DD6 /* Images.xcassets in Resources */,
 				CBCC4A13196FE3C100F49DD6 /* InfoPlist.strings in Resources */,
@@ -358,6 +359,7 @@
 				CB97507D1972386C00EF381C /* VerticalPanGestureRecognizer.m in Sources */,
 				CBCC4A42196FE67100F49DD6 /* DraggableView.m in Sources */,
 				CB9750801973D64100EF381C /* UIView-Transform.m in Sources */,
+				E00E650C1974D6F100B3859A /* TapOutsideBoundsView.m in Sources */,
 				E00E64FF197486B400B3859A /* HitTestingViewController.m in Sources */,
 				CB9750831973D66100EF381C /* RotateScaleAndTranslateView.m in Sources */,
 			);
