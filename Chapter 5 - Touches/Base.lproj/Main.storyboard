@@ -191,12 +191,22 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EuS-5r-4bt">
+                                <rect key="frame" x="84" y="724" width="600" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.56462066630230079" blue="0.65854524266029468" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="At2-TH-dOO" appends="YES" id="5rj-BR-iNb"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.19050740276168909" green="0.37627409766295439" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Hit Testing" id="BZ6-OG-tYS"/>
                     <connections>
                         <outlet property="hitTestView" destination="GgN-50-czy" id="CqH-GI-QkB"/>
+                        <outlet property="layerHitTestView" destination="EuS-5r-4bt" id="PCj-oR-FPD"/>
                         <outlet property="tapOutsideBoundsView" destination="X8B-bH-VXS" id="yyv-En-020"/>
                     </connections>
                 </viewController>
@@ -204,6 +214,11 @@
                 <tapGestureRecognizer id="6iu-mJ-7fk">
                     <connections>
                         <action selector="tap:" destination="DtU-cn-z8i" id="dLs-Ew-TkP"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="At2-TH-dOO">
+                    <connections>
+                        <action selector="tapLayers:" destination="DtU-cn-z8i" id="wrG-dG-zSa"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
